@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Array Utilities Test
  */
-class ArrayUtilitiesTest extends TestCase
+final class ArrayUtilitiesTest extends TestCase
 {
     /**
      * @param array   $mandatoryKeys
