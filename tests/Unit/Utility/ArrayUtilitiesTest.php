@@ -1,8 +1,7 @@
 <?php
 
 /*
- * Application    : Shop4raad
- * Author         : Maarten Verijdt (mverijdt@gmail.com)
+ * Author : Maarten Verijdt (murtho@gmail.com)
  */
 
 namespace Murtho\Tests\Unit\Utility;
@@ -23,7 +22,7 @@ final class ArrayUtilitiesTest extends TestCase
      * @test
      * @dataProvider provideMandatoryItemsData
      */
-    public function mandatoryItemsArePresent(array $mandatoryKeys, array $providedData, $expectedOutput)
+    public function mandatoryItemsArePresent(array $mandatoryKeys, array $providedData, bool $expectedOutput)
     {
         $output = ArrayUtilities::mandatoryItemsExist($mandatoryKeys, $providedData);
 
@@ -34,7 +33,7 @@ final class ArrayUtilitiesTest extends TestCase
     /**
      * @return array
      */
-    public function provideMandatoryItemsData() : array
+    public function provideMandatoryItemsData(): array
     {
         return [
             [["all", "items", "are", "present"], ["all", "items", "are", "present"], true],
@@ -53,7 +52,7 @@ final class ArrayUtilitiesTest extends TestCase
      * @test
      * @dataProvider provideMandatoryKeysData
      */
-    public function mandatoryKeysArePresent(array $mandatoryKeys, array $providedData, $expectedOutput)
+    public function mandatoryKeysArePresent(array $mandatoryKeys, array $providedData, bool $expectedOutput)
     {
         $output = ArrayUtilities::mandatoryKeysExist($mandatoryKeys, $providedData);
 
@@ -64,7 +63,7 @@ final class ArrayUtilitiesTest extends TestCase
     /**
      * @return array
      */
-    public function provideMandatoryKeysData() : array
+    public function provideMandatoryKeysData(): array
     {
         return [
             [["all", "keys", "are", "present"], array_flip(["all", "keys", "are", "present"]), true],
@@ -83,7 +82,7 @@ final class ArrayUtilitiesTest extends TestCase
      * @test
      * @dataProvider deepensArrayCorrectlyData
      */
-    public function deepensArrayCorrectly(array $providedData, $delimiter, array $expectedOutput)
+    public function deepensArrayCorrectly(array $providedData, string $delimiter, array $expectedOutput)
     {
         $output = ArrayUtilities::deepen($providedData, $delimiter);
 
@@ -94,7 +93,7 @@ final class ArrayUtilitiesTest extends TestCase
     /**
      * @return array
      */
-    public function deepensArrayCorrectlyData() : array
+    public function deepensArrayCorrectlyData(): array
     {
         return [
             [
@@ -122,7 +121,7 @@ final class ArrayUtilitiesTest extends TestCase
      * @test
      * @dataProvider deepensArrayCorrectlyData
      */
-    public function flattensArrayCorrectly(array $providedData, $glue, array $expectedOutput)
+    public function flattensArrayCorrectly(array $providedData, string $glue, array $expectedOutput)
     {
         $output = ArrayUtilities::flatten($providedData, $glue);
 
@@ -133,7 +132,7 @@ final class ArrayUtilitiesTest extends TestCase
     /**
      * @return array
      */
-    public function flattensArrayCorrectlyData() : array
+    public function flattensArrayCorrectlyData(): array
     {
         return [
             [
@@ -161,7 +160,7 @@ final class ArrayUtilitiesTest extends TestCase
      * @test
      * @dataProvider deepensArrayKeyCorrectlyData
      */
-    public function deepensArrayKeyCorrectly(array $providedData, $delimiter, array $expectedOutput)
+    public function deepensArrayKeyCorrectly(array $providedData, string $delimiter, array $expectedOutput)
     {
         $output = ArrayUtilities::deepenKey($providedData, $delimiter);
 
@@ -172,7 +171,7 @@ final class ArrayUtilitiesTest extends TestCase
     /**
      * @return array
      */
-    public function deepensArrayKeyCorrectlyData() : array
+    public function deepensArrayKeyCorrectlyData(): array
     {
         return [
             [
@@ -206,7 +205,7 @@ final class ArrayUtilitiesTest extends TestCase
      * @test
      * @dataProvider flattensArrayKeyCorrectlyData
      */
-    public function flattensArrayKeyCorrectly(array $providedData, $glue, array $expectedOutput)
+    public function flattensArrayKeyCorrectly(array $providedData, string $glue, array $expectedOutput)
     {
         $output = ArrayUtilities::flattenKey($providedData, $glue);
 
@@ -217,7 +216,7 @@ final class ArrayUtilitiesTest extends TestCase
     /**
      * @return array
      */
-    public function flattensArrayKeyCorrectlyData() : array
+    public function flattensArrayKeyCorrectlyData(): array
     {
         return [
             [
@@ -261,7 +260,7 @@ final class ArrayUtilitiesTest extends TestCase
     /**
      * @return array
      */
-    public function provideGenerateCombinationsData() : array
+    public function provideGenerateCombinationsData(): array
     {
         return [
             [
@@ -330,7 +329,7 @@ final class ArrayUtilitiesTest extends TestCase
      * @test
      * @dataProvider provideFilterByTermData
      */
-    public function filtersByTerm(array $data, $term, $flag, array $expectedOutput)
+    public function filtersByTerm(array $data, string $term, int $flag, array $expectedOutput)
     {
         $output = ArrayUtilities::filterByTerm($data, $term, $flag);
 
@@ -341,7 +340,7 @@ final class ArrayUtilitiesTest extends TestCase
     /**
      * @return array
      */
-    public function provideFilterByTermData() : array
+    public function provideFilterByTermData(): array
     {
         return [
             [
@@ -388,7 +387,7 @@ final class ArrayUtilitiesTest extends TestCase
      * @test
      * @dataProvider provideFilterKeyByTermData
      */
-    public function filtersKeyByTerm(array $data, $key, $term, array $expectedOutput)
+    public function filtersKeyByTerm(array $data, $key, string $term, array $expectedOutput)
     {
         $output = ArrayUtilities::filterKeyByTerm($data, $key, $term);
 
@@ -399,7 +398,7 @@ final class ArrayUtilitiesTest extends TestCase
     /**
      * @return array
      */
-    public function provideFilterKeyByTermData() : array
+    public function provideFilterKeyByTermData(): array
     {
         return [
             [

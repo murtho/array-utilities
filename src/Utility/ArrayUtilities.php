@@ -1,14 +1,13 @@
 <?php
 
 /*
- * Application    : Shop4raad
- * Author         : Maarten Verijdt (mverijdt@gmail.com)
+ * Author : Maarten Verijdt (murtho@gmail.com)
  */
 
 namespace Murtho\Utility;
 
 /**
- * Array Utilities
+ * ArrayUtilities
  */
 class ArrayUtilities
 {
@@ -19,7 +18,7 @@ class ArrayUtilities
      * @param array $data
      * @return boolean
      */
-    public static function mandatoryItemsExist(array $mandatoryItems, array $data)
+    public static function mandatoryItemsExist(array $mandatoryItems, array $data): bool
     {
         return 0 === count(array_diff($mandatoryItems, $data));
     }
@@ -31,7 +30,7 @@ class ArrayUtilities
      * @param array $data
      * @return boolean
      */
-    public static function mandatoryKeysExist(array $mandatoryKeys, array $data)
+    public static function mandatoryKeysExist(array $mandatoryKeys, array $data): bool
     {
         return 0 === count(array_diff_key(array_flip($mandatoryKeys), $data));
     }
@@ -43,7 +42,7 @@ class ArrayUtilities
      * @param string $delimiter
      * @return array
      */
-    public static function deepen(array $data, $delimiter) : array
+    public static function deepen(array $data, string $delimiter): array
     {
         $result = [];
 
@@ -72,7 +71,7 @@ class ArrayUtilities
      * @param string $glue
      * @return array
      */
-    public static function flatten(array $data, $glue) : array
+    public static function flatten(array $data, string $glue): array
     {
         $result = [];
 
@@ -95,7 +94,7 @@ class ArrayUtilities
      * @param string $delimiter
      * @return array
      */
-    public static function deepenKey(array $data, $delimiter) : array
+    public static function deepenKey(array $data, string $delimiter): array
     {
         $result = [];
 
@@ -132,7 +131,7 @@ class ArrayUtilities
      * @param string $keyPrefix
      * @return array
      */
-    public static function flattenKey(array $data, $glue, $keyPrefix = "") : array
+    public static function flattenKey(array $data, string $glue, string $keyPrefix = ""): array
     {
         $result = [];
 
@@ -161,7 +160,7 @@ class ArrayUtilities
      * @param integer $index
      * @return array The array with all possible combinations
      */
-    public static function generateCombinations(array $data, $index = 0) : array
+    public static function generateCombinations(array $data, int $index = 0): array
     {
         if (!isset($data[$index])) {
             return [];
@@ -193,7 +192,7 @@ class ArrayUtilities
      * @param integer $flag
      * @return array
      */
-    public static function filterByTerm(array $data, $term, $flag = 0) : array
+    public static function filterByTerm(array $data, string $term, int $flag = 0): array
     {
         return array_filter($data, function ($item) use ($term) {
             return (false !== stripos($item, $term));
@@ -208,7 +207,7 @@ class ArrayUtilities
      * @param string $term
      * @return array
      */
-    public static function filterKeyByTerm(array $data, $key, $term) : array
+    public static function filterKeyByTerm(array $data, string $key, string $term): array
     {
         return array_filter($data, function ($item) use ($key, $term) {
             return (false !== stripos($item[$key], $term));
